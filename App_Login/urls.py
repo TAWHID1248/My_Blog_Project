@@ -12,10 +12,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('change-profile/', views.user_change, name='user_change'),
     path('password/', views.pass_change, name='pass_change'),
-<<<<<<< HEAD
     path('add-picture/', views.add_pro_pic, name='add_pro_pic'),
     path('change-picture', views.change_pro_pic, name='change_pro_pic'),
-=======
->>>>>>> c3b3ca2fdee646d30eb36886b5d7619297405e9d
     
 ]
