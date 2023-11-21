@@ -4,6 +4,7 @@
 {% block body_block %}
 {% if changed %}
 <div class="alert alert-success">
+<<<<<<< HEAD
   Password Change Successfully!
 </div>
 {% endif %}
@@ -13,3 +14,17 @@
   <button type="submit" class="btn btn-warning btn-sm">Change</button>
 </form>
 {% endblock %}
+=======
+    Password Change Successfully!
+  </div>
+  {% endif %}
+  <form method="POST">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-warning btn-sm">Change</button>
+  </form>
+
+{% endblock %}
+
+
+>>>>>>> c3b3ca2fdee646d30eb36886b5d7619297405e9d

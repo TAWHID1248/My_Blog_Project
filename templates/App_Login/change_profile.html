@@ -2,6 +2,11 @@
 {% load crispy_forms_tags %}
 {% block title_block %} Change Profile {% endblock %}
 {% block  body_block %}
+{% if changed %}
+<div class="alert alert-success">
+  Profile Updated Successfully!
+</div>
+{% endif %}
 <form method="POST">
   {{ form|crispy }}
   {% csrf_token %}
