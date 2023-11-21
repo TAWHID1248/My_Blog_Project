@@ -57,15 +57,10 @@ def user_change(request):
         if form.is_valid():
             form.save()
             form = UserProfileChange(instance=current_user)
-<<<<<<< HEAD
     return render(request, 'App_Login/change_profile.html', context={'form':form})
 
 
 
-=======
-            changed = True
-    return render(request, 'App_Login/change_profile.html', context={'form':form, 'changed':changed})
->>>>>>> c3b3ca2fdee646d30eb36886b5d7619297405e9d
 
 @login_required
 def pass_change(request):
@@ -77,7 +72,6 @@ def pass_change(request):
         if form.is_valid():
             form.save()
             changed = True
-<<<<<<< HEAD
     return render(request, 'App_Login/pass_change.html', context={'form':form, 'changed':changed})
 
 
@@ -103,6 +97,4 @@ def change_pro_pic(request):
             form.save()
             return HttpResponseRedirect(reverse('App_Login:profile'))
     return render(request, 'App_Login/pro_pic_add.html', context={'form':form})
-=======
-    return render(request, 'App_Login/pass_change.html', context={'form':form, 'changed':changed})        
->>>>>>> c3b3ca2fdee646d30eb36886b5d7619297405e9d
+    # return render(request, 'App_Login/pass_change.html', context={'form':form, 'changed':changed})        
