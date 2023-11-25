@@ -27,3 +27,8 @@ class CreateBlog(LoginRequiredMixin, CreateView):
         blog_obj.slug = title.replace(' ', '-') + str(uuid.uuid4())
         blog_obj.save()
         return HttpResponseRedirect(reverse('index'))
+    
+class BlogList(ListView):
+        context_object_name = 'blogs'
+        model = Blog
+        template_name = 'App_Blog/blog_list.html'
