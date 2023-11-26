@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
+from App_Blog.forms import CommentForm
 # Create your views here.
 
 
@@ -36,6 +37,15 @@ class BlogList(ListView):
 @login_required
 def blog_details(request, slug):
     blog = Blog.objects.get(slug=slug)
+    comment_form = CommentForm
 
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.blog = blog
+            comment.save()
+            return HttpResponseRedirect(reverse('App_Blog:blog_details', kwargs={'slug': slug}))
 
-    return render(request, 'App_Blog/blog_details.html', {'blog': blog})        
+    return render(request, 'App_Blog/blog_details.html', context={'blog': blog, 'comment_form': comment_form})        
